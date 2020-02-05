@@ -1,8 +1,17 @@
+buildscript {
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
+    }
+}
+
 plugins {
     id 'org.springframework.boot' version '2.2.4.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
 }
+
+//Spring Boot Overriding
+ext['hibernate.version'] = '5.2.11.Final' //추가
 
 group = 'com.kakao.chelsy'
 version = '0.0.1-SNAPSHOT'
@@ -28,6 +37,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    implementation 'junit:junit:4.12'
 }
 
 test {
